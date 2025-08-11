@@ -10,7 +10,7 @@ Este proyecto ya viene listo para que hagas `npm install` y arranque todo.
 ```bash
 # en la carpeta raíz (donde está este README)
 npm install
-En el raiz de la carpeta backend pegar el archivo .env que mande al grupo.
+En el raiz de la carpeta backend pegar el archivo .env que mande al grupo. JOPO SE LA COME
 npm run dev
 ```
 - Frontend: http://localhost:5173
