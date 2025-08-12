@@ -1,31 +1,36 @@
-import { useEffect, useState } from 'react'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout";
+import Health from "./pages/Health";
+
+// VISTAS VACÍAS (sólo con un título) POR AHORA
+function Articulos() { return <h2>Artículos</h2>; }
+function Depositos() { return <h2>Depósitos</h2>; }
+function Stock() { return <h2>Stock</h2>; }
+function Ajustes() { return <h2>Ajustes</h2>; }
+function Historial() { return <h2>Historial</h2>; }
+function Compras() { return <h2>Compras</h2>; }
+function Ventas() { return <h2>Ventas</h2>; }
+function Resumenes() { return <h2>Resumenes</h2>; }
+
+function Usuario() { return <h2>Usuario</h2>; }
 
 export default function App() {
-  const [health, setHealth] = useState(null)
-
-  useEffect(() => {
-    fetch('/api/health')
-      .then(r => r.json())
-      .then(setHealth)
-      .catch(() => setHealth({ ok: false }))
-  }, [])
-
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="p-6 shadow bg-white">
-        <h1 className="text-2xl font-bold">NovaMarket</h1>
-        <p className="text-sm text-gray-600">React + Vite + Tailwind</p>
-      </header>
-
-      <main className="p-6 grid gap-6">
-        <div className="rounded-2xl p-6 shadow bg-white">
-          <h2 className="text-xl font-semibold mb-2">Estado del sistema</h2>
-          <pre className="text-sm">{JSON.stringify(health, null, 2)}</pre>
-          <p className="text-xs text-gray-500 mt-2">
-            Si ves {"{"}'ok': true, 'db': true{"}"} la API y la base están OK.
-          </p>
-        </div>
-      </main>
-    </div>
-  )
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Health />} />
+          <Route path="/stock/articulos" element={<Articulos />} />
+          <Route path="/stock/depositos" element={<Depositos />} />
+          <Route path="/stock/stock" element={<Stock />} />
+          <Route path="/stock/ajustes" element={<Ajustes />} />
+          <Route path="/stock/historial" element={<Historial />} />
+          <Route path="/compras" element={<Compras />} />
+          <Route path="/ventas" element={<Ventas />} />
+          <Route path="/resumenes" element={<Resumenes />} />
+          <Route path="/usuario" element={<Usuario />} />
+        </Routes>
+      </Layout>
+    </Router>
+  );
 }
