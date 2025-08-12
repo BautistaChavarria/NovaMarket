@@ -15,7 +15,7 @@ npm run dev
 ```
 - Frontend: http://localhost:5173
 - Backend:  http://localhost:3001
-- Probar API: `curl http://localhost:3001/api/health`  Esto es para para probar si anda bien. Después se borra.
+- Probar API: `curl http://localhost:3001/api/health`  Esto es para para probar si anda bien. Después se borra. 
 
 ## Estructura
 ```
